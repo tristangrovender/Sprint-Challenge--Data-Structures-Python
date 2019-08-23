@@ -5,7 +5,15 @@ class RingBuffer:
     self.storage = [None]*capacity
 
   def append(self, item):
-    pass
+    # Set the passed in item to evaluate to the current item in storage.
+    self.storage[self.current] = item
+    # If the current value is less than the overall capacity.
+    if self.current < self.capacity - 1:
+      # Add it to the list
+      self.current += 1
+    else:
+      # Otherwise set current value to 0
+      self.current = 0
 
   def get(self):
     pass
